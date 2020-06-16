@@ -41,8 +41,8 @@ Article.objects.filter(title='first')[0]
 
 **5. SELECT * FROM articles_article WHERE id=1**
 ```python
-Article.objects.get(id=1)
-Article.objects.get(pk=1)
+Article.objects.get(id=2)
+Article.objects.get(pk=2)
 # 주의점
 # 고유값이 아닌 내용을 필터링 해서
 # 2개 이상의 값이 찾아지면 오류를 발생한다.
@@ -57,6 +57,12 @@ Article.objects.filter(title__contains='fir')
 Article.objects.filter(title__startswith="se")
 # 특정 문자열로 끝나는가
 Article.objects.filter(content_endswith="ha")
+```
+**ASC / DESC**
+```python
+Article.objects.all().order_by('pk')
+Article.objects.all().order_by('-pk')
+Article.objects.all()[::-1]
 ```
 ---
 ## UPDATE
